@@ -9,8 +9,7 @@ const DeleteAllBlogs = () => {
     axios
       .delete(`${serverData}/delete-all`)
       .then((res) => {
-        console.log(res);
-        navigate("/blog-added");
+        navigate("/blogs-deleted");
       })
       .catch((err) => {
         console.log(err);

@@ -10,7 +10,7 @@ const DeleteBlog = (props) => {
       .delete(`${serverData}/delete-single/${props.blog.id}`)
       .then((res) => {
         console.log(res);
-        navigate("/blog-added");
+        navigate("/blog-deleted");
       })
       .catch((err) => {
         console.log(err);
