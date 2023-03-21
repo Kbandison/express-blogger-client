@@ -1,38 +1,121 @@
-.App {
+* {
+  font-family: "Phudu", sans-serif;
+  font-weight: 400;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-color: #c8cc92;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.blog-list-area {
+  /* border: 5px solid black; */
+  margin: 50px 130px 0 130px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 0 0 0 80px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.blog-card {
+  /* border: 5px solid black; */
+  border-radius: 15px;
+  margin: 50px;
+  background-color: #776274;
+  width: 15vw;
+  height: 10vw;
+  color: #e6ccbe;
+}
+
+.nav-bar {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 50px;
+}
+
+.nav-bar a:hover {
+  color: #a07178;
+}
+
+.nav-bar a {
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.bloglist-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+button {
+  height: 50px;
+  width: 120px;
+  cursor: pointer;
+  border: 2px solid #a07178;
+  border-radius: 15px;
+  color: white;
+  background-color: #5a5353;
+  font-size: 1em;
+}
+
+button a {
+  text-decoration: none;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+button:hover {
+  background-color: #a07178;
+  border: 4px solid #5a5353;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button:focus {
+  outline: 0;
+  background-color: #a07178;
+  border: 4px solid #5a5353;
+}
+
+.bigger-button {
+  height: 50px;
+}
+
+.header {
+  padding-bottom: 25px;
+  /* border: 5px solid black; */
+  text-align: center;
+}
+
+.link-button {
+  background: none;
+}
+
+.confirm-button {
+  width: 7vw;
+}
+
+.blog-form-area {
+  /* border: 5px solid black; */
+  width: 100vw;
+}
+
+.blog-area {
+  /* border: 15px solid black; */
+  display: flex;
+  justify-content: center;
+}
+
+input,
+textarea {
+  height: 40px;
+  width: 200px;
+  border-radius: 15px;
+  margin-bottom: 40px;
+  border: 5px solid #a07178;
+}
+
+input:focus,
+textarea:focus {
+  border: 5px solid #5a5353;
+  outline: 0;
 }

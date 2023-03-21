@@ -22,23 +22,45 @@ const Bloglist = () => {
   }, [serverData]);
 
   return (
-    <div>
-      {blogs.map((blog) => {
-        return (
-          <div key={blog.id}>
-            <BlogCard blog={blog} />
-            <button>
-              <Link to={`/blog-update/${blog.id}`}>Update</Link>
-            </button>
-            <DeleteBlog blog={blog} />
-          </div>
-        );
-      })}
+    <div className="blogs-page">
       <br />
       <br />
       <br />
-      <br />
-      {blogs.length > 0 ? <DeleteAllBlogs /> : <h1>There are No Blogs</h1>}
+      <button>
+        <Link to={"/create-blog"}>+ Add A Blog</Link>
+      </button>
+
+      <div className="blog-list-area">
+        {blogs.map((blog) => {
+          return (
+            <div key={blog.id} className="blog-card">
+              <BlogCard blog={blog} />
+              <div className="bloglist-buttons">
+                <button>
+                  <Link to={`/blog/${blog.id}`} className="link-button">
+                    View Blog
+                  </Link>
+                </button>
+                <button>
+                  <Link to={`/blog-update/${blog.id}`} className="link-button">
+                    Update Blog
+                  </Link>
+                </button>
+                <DeleteBlog blog={blog} />
+              </div>
+            </div>
+          );
+        })}
+        <br />
+        <br />
+        <br />
+        <br />
+      </div>
+      {blogs.length > 0 ? (
+        <DeleteAllBlogs blogs={blogs} />
+      ) : (
+        <h1>There are No Blogs</h1>
+      )}
     </div>
   );
 };

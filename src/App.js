@@ -8,6 +8,7 @@ import AddConfirm from "./Pages/BlogAddConfirm";
 import DeleteOne from "./Pages/BlogDeleteConfirm";
 import UpdateBlog from "./Components/UpdateBlog";
 import DeleteAll from "./Pages/DeleteAllConfirm";
+import BlogPage from "./Pages/BlogPage";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/blogs" element={<Bloglist />} />
           <Route path="/create-blog" element={<AddBlog />} />
+          <Route path="/blog/:id" element={<BlogPage />} />
           <Route path="/blog-added" element={<AddConfirm />} />
           <Route path="/blog-deleted" element={<DeleteOne />} />
           <Route path="/blogs-deleted" element={<DeleteAll />} />

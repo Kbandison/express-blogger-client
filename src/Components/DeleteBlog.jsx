@@ -9,7 +9,6 @@ const DeleteBlog = (props) => {
     axios
       .delete(`${serverData}/delete-single/${props.blog.id}`)
       .then((res) => {
-        console.log(res);
         navigate("/blog-deleted");
       })
       .catch((err) => {

@@ -1,7 +1,7 @@
 import { useOutletContext, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const DeleteAllBlogs = () => {
+const DeleteAllBlogs = (props) => {
   const serverData = useOutletContext();
   const navigate = useNavigate();
 
@@ -18,7 +18,12 @@ const DeleteAllBlogs = () => {
 
   return (
     <div>
-      <button onClick={() => deleteAllBlogs()}>Delete All Blogs</button>
+      <button
+        onClick={() => deleteAllBlogs()}
+        className="delete-button bigger-button confirm-button"
+      >
+        {`* Delete ${props.blogs.length} Blogs *`}
+      </button>
     </div>
   );
 };

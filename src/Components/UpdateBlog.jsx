@@ -52,54 +52,72 @@ const UpdateBlog = () => {
   };
 
   return (
-    <div className="create">
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="title">Blog title:</label>
-        <input
-          type="text"
-          name="title"
-          value={updateBlog.title}
-          onChange={handleChange}
-          placeholder="Add A Tiltle"
-        />
-        <br />
-        <label htmlFor="text">Blog text:</label>
-        <textarea
-          name="text"
-          value={updateBlog.text}
-          onChange={handleChange}
-          placeholder="Add A Description"
-        ></textarea>
-        <br />
-        <label htmlFor="author">Blog author:</label>
-        <input
-          type="text"
-          name="author"
-          value={updateBlog.author}
-          onChange={handleChange}
-          placeholder="Enter the Author's Name"
-        />
-        <br />
-        <label htmlFor="categories">Blog Categories:</label>
-        <input
-          type="text"
-          name="categories"
-          value={updateBlog.categories}
-          onChange={handleChange}
-          placeholder="Enter the Categories"
-        />
-        <br />
-        <label htmlFor="year">Blog Year:</label>
-        <input
-          type="text"
-          name="year"
-          value={updateBlog.year}
-          onChange={handleChange}
-          placeholder="Enter the Year Created"
-        />
-        <br />
-        <button>Update Blog</button>
-      </form>
+    <div className="blog-area">
+      <div className="blog-form-area">
+        <h1>Update Blog</h1>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="title">Blog title:</label>
+
+          <br />
+          <br />
+          <input
+            type="text"
+            name="title"
+            value={updateBlog.title}
+            onChange={handleChange}
+            placeholder="Add A Tiltle"
+          />
+          <br />
+          <label htmlFor="text">Blog text:</label>
+
+          <br />
+          <br />
+          <textarea
+            name="text"
+            value={updateBlog.text}
+            onChange={handleChange}
+            placeholder="Add A Description"
+          ></textarea>
+          <br />
+          <label htmlFor="author">Blog author:</label>
+
+          <br />
+          <br />
+          <input
+            type="text"
+            name="author"
+            value={updateBlog.author}
+            onChange={handleChange}
+            placeholder="Enter the Author's Name"
+          />
+          <br />
+          <label htmlFor="categories">Blog Categories:</label>
+
+          <br />
+          <br />
+          <input
+            type="text"
+            name="categories"
+            value={updateBlog.categories}
+            onChange={handleChange}
+            placeholder="Enter the Categories"
+          />
+          <br />
+          <label htmlFor="year">Blog Year:</label>
+
+          <br />
+          <br />
+          <input
+            type="text"
+            name="year"
+            value={updateBlog.year}
+            onChange={handleChange}
+            placeholder="Enter the Year Created"
+          />
+          <br />
+          <button>Update Blog</button>
+        </form>
+      </div>
     </div>
   );
 };
