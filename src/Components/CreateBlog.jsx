@@ -43,7 +43,11 @@ const CreateBlog = () => {
   return (
     <div className="blog-area">
       <div className="blog-form-area">
+        <br />
+        <br />
         <h1>Add Blog</h1>
+        <br />
+        <br />
         <form onSubmit={handleSubmit}>
           <label htmlFor="title">Blog title:</label>
           <br />
@@ -108,6 +112,7 @@ const CreateBlog = () => {
             placeholder="Enter the Year Created"
             required
           />
+          <br />
           <br />
           <button>Add Blog</button>
         </form>

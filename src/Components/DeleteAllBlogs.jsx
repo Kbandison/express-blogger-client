@@ -22,7 +22,9 @@ const DeleteAllBlogs = (props) => {
         onClick={() => deleteAllBlogs()}
         className="delete-button bigger-button confirm-button"
       >
-        {`* Delete ${props.blogs.length} Blogs *`}
+        {`* Delete ${props.blogs.length} ${
+          props.blogs.length > 1 ? "Blogs" : "Blog"
+        } *`}
       </button>
     </div>
   );

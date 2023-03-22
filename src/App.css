@@ -5,7 +5,8 @@
 }
 
 body {
-  background-color: #c8cc92;
+  background-color: #5a5353;
+  color: #e6ccbe;
 }
 
 .blog-list-area {
@@ -20,10 +21,10 @@ body {
   /* border: 5px solid black; */
   border-radius: 15px;
   margin: 50px;
-  background-color: #776274;
+  background-color: #e6ccbe;
   width: 15vw;
   height: 10vw;
-  color: #e6ccbe;
+  color: #776274;
 }
 
 .nav-bar {
@@ -38,7 +39,7 @@ body {
 
 .nav-bar a {
   text-decoration: none;
-  color: black;
+  color: #e6ccbe;
   font-size: 20px;
   font-weight: 600;
 }
@@ -55,14 +56,14 @@ button {
   cursor: pointer;
   border: 2px solid #a07178;
   border-radius: 15px;
-  color: white;
+  color: #c8cc92;
   background-color: #5a5353;
   font-size: 1em;
 }
 
 button a {
   text-decoration: none;
-  color: white;
+  color: #c8cc92;
 }
 
 button:hover {
@@ -108,14 +109,16 @@ button:focus {
 input,
 textarea {
   height: 40px;
-  width: 200px;
+  width: 250px;
   border-radius: 15px;
   margin-bottom: 40px;
-  border: 5px solid #a07178;
+  border: 5px solid #c8cc92;
+  background-color: #c8cc92;
+  font-size: larger;
 }
 
 input:focus,
 textarea:focus {
-  border: 5px solid #5a5353;
+  border: 5px solid #a07178;
   outline: 0;
 }
