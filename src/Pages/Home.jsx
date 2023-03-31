@@ -18,18 +18,12 @@ const Home = () => {
 
     if (userInfo) {
       setUser(JSON.parse(userInfo));
-    } else {
-      navigate("/user-login");
     }
   }, []);
 
   return (
     <div>
       <h1>Home Page</h1>
-      <h2>
-        Welcome {user.firstName} {user.lastName}
-      </h2>
-      <h2>Your Role: {user.scope}</h2>
     </div>
   );
 };

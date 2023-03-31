@@ -82,9 +82,12 @@ button:focus {
 }
 
 .header {
-  padding-bottom: 25px;
+  padding: 0 25px 25px 25px;
   /* border: 5px solid black; */
   text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .link-button {

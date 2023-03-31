@@ -1,21 +1,38 @@
-import React from "react";
-import { Link, useOutletContext, useNavigate } from "react-router-dom";
-import { useAuth } from "../Hooks/auth";
-import axios from "axios";
+import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { register, reset } from "../Features/auth/authSlice";
 
 const SignUpForm = () => {
-  const serverData = useOutletContext();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const auth = useAuth();
 
-  const [signUp, setSignUp] = React.useState({
+  const { user, isError, isSuccess, isLoading, message } = useSelector(
+    (state) => state.auth
+  );
+
+  const [registerMessage, setRegisterMessage] = useState("");
+  const [signUp, setSignUp] = useState({
     firstName: "",
     lastName: "",
     email: "",
     password: "",
     confirmPassword: "",
   });
-  const [registerMessage, setRegisterMessage] = React.useState("");
+
+  useEffect(() => {
+    if (isError) {
+      console.log(message);
+      setRegisterMessage(message);
+      dispatch(reset());
+    }
+
+    if (isSuccess || user) {
+      navigate("/");
+    }
+
+    dispatch(reset());
+  }, [user, isError, isSuccess, message, navigate, dispatch]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -31,29 +48,11 @@ const SignUpForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const registerResult = await auth.register(
-      signUp.firstName,
-      signUp.lastName,
-      signUp.email,
-      signUp.password,
-      signUp.confirmPassword
-    );
-
-    if (registerResult.success) {
-      navigate("/user-login");
-    } else {
-      setRegisterMessage(registerResult.message);
-      console.log(registerResult.message);
+    if (signUp.password !== signUp.confirmPassword) {
+      setRegisterMessage("Passwords do not match");
     }
 
-    // axios
-    //   .post(`${serverData}/users/register`, signUp)
-    //   .then((res) => {
-    //     console.log(res.data);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err.message);
-    //   });
+    dispatch(register(signUp));
   };
 
   return (

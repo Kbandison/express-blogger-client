@@ -10,11 +10,9 @@ import { AuthProvider } from "./Hooks/auth";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    {/* <Provider store={store}> */}
-    <AuthProvider>
+    <Provider store={store}>
       <App />
-    </AuthProvider>
-    {/* </Provider> */}
+    </Provider>
   </React.StrictMode>
 );
 

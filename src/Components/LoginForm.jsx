@@ -1,25 +1,40 @@
-import React from "react";
-import { Link, useNavigate, useOutletContext } from "react-router-dom";
 import { useState, useEffect } from "react";
-import axios from "axios";
-import { useAuth } from "../Hooks/auth";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { login, reset } from "../Features/auth/authSlice";
 
 const LoginForm = () => {
-  const serverData = useOutletContext();
   const navigate = useNavigate();
-  const auth = useAuth();
+  const dispatch = useDispatch();
 
-  const [login, setLogin] = useState({
+  const { user, isError, isSuccess, isLoading, message } = useSelector(
+    (state) => state.auth
+  );
+
+  const [loginMessage, setLoginMessage] = useState("");
+  const [loginUser, setLoginUser] = useState({
     email: "",
     password: "",
   });
 
-  const [loginMessage, setLoginMessage] = useState("");
+  useEffect(() => {
+    if (isError) {
+      console.log(message);
+      setLoginMessage(message);
+      dispatch(reset());
+    }
+
+    if (isSuccess || user) {
+      navigate("/");
+    }
+
+    dispatch(reset());
+  }, [user, isError, isSuccess, message, navigate, dispatch]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    setLogin((login) => {
+    setLoginUser((login) => {
       return {
         ...login,
         [name]: value,
@@ -30,16 +45,7 @@ const LoginForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const loginResult = auth.login(login.email, login.password);
-
-    if (loginResult.success) {
-      navigate("/");
-    } else {
-      setLoginMessage(loginResult.message);
-      console.log(loginResult);
-    }
-
-    // axios
+    dispatch(login(loginUser));
     //   .post(`${serverData}/users/user-login`, login)
     //   .then((res) => {
     //     console.log(res.data);
