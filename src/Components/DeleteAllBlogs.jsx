@@ -7,7 +7,7 @@ const DeleteAllBlogs = (props) => {
 
   const deleteAllBlogs = () => {
     axios
-      .delete(`${serverData}/delete-all`)
+      .delete(`${serverData}/blogs/delete-all`)
       .then((res) => {
         navigate("/blogs-deleted");
       })

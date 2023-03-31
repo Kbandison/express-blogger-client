@@ -17,7 +17,7 @@ const UpdateBlog = () => {
 
   useEffect(() => {
     axios
-      .get(`${serverData}/single/${id}`)
+      .get(`${serverData}/blogs/single/${id}`)
       .then((res) => {
         setUpdateBlog(res.data.blog);
       })
@@ -41,7 +41,7 @@ const UpdateBlog = () => {
     e.preventDefault();
 
     axios
-      .put(`${serverData}/update-single/${id}`, updateBlog)
+      .put(`${serverData}/blogs/update-single/${id}`, updateBlog)
       .then((res) => {
         setUpdateBlog(res.data.blog);
         navigate("/blog-added");

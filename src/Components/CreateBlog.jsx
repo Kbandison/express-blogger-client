@@ -30,7 +30,7 @@ const CreateBlog = () => {
     e.preventDefault();
 
     axios
-      .post(`${serverData}/create-one`, newBlog)
+      .post(`${serverData}/blogs/create-one`, newBlog)
       .then((res) => {
         setNewBlog(res.data.blog);
         navigate("/blog-added");

@@ -12,7 +12,7 @@ const Bloglist = () => {
 
   useEffect(() => {
     axios
-      .get(`${serverData}/blog-list`)
+      .get(`${serverData}/blogs/blog-list`)
       .then((res) => {
         setBlogs(res.data.blogs);
       })

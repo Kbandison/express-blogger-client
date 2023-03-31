@@ -1,7 +1,7 @@
 import { Link, Outlet } from "react-router-dom";
 
+const serverData = process.env.REACT_APP_ENDPOINT;
 const Navbar = () => {
-  const serverData = process.env.REACT_APP_ENDPOINT;
   return (
     <div>
       <div className="header">
@@ -9,6 +9,7 @@ const Navbar = () => {
         <nav className="nav-bar">
           <Link to={"/"}>Home</Link>
           <Link to={"/blogs"}>Blog List</Link>
+          <Link to={"/user-login"}>Login / Sign-up</Link>
         </nav>
       </div>
       <Outlet context={serverData} />

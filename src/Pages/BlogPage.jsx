@@ -16,7 +16,7 @@ const BlogPage = () => {
 
   useEffect(() => {
     axios
-      .get(`${serverData}/single/${id}`)
+      .get(`${serverData}/blogs/single/${id}`)
       .then((res) => {
         setBlog(res.data.blog);
       })
