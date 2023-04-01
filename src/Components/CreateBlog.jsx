@@ -1,8 +1,12 @@
-import { useOutletContext, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { createBlog } from "../Features/blogs/blogSlice";
 import { useState } from "react";
-import axios from "axios";
 
 const CreateBlog = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const [newBlog, setNewBlog] = useState({
     title: "",
     text: "",
@@ -10,9 +14,6 @@ const CreateBlog = () => {
     year: "",
     categories: [],
   });
-
-  const serverData = useOutletContext();
-  const navigate = useNavigate();
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -29,15 +30,18 @@ const CreateBlog = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios
-      .post(`${serverData}/blogs/create-one`, newBlog)
-      .then((res) => {
-        setNewBlog(res.data.blog);
-        navigate("/blog-added");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    dispatch(createBlog(newBlog));
+    navigate("/blog-added");
+
+    // axios
+    //   .post(`${serverData}/blogs/create-one`, newBlog)
+    //   .then((res) => {
+    //     setNewBlog(res.data.blog);
+    //     navigate("/blog-added");
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
   };
 
   return (

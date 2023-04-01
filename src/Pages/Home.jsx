@@ -1,30 +1,25 @@
 import React from "react";
-// import { useAuth } from "../Hooks/auth";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 const Home = () => {
-  // const auth = useAuth();
-
-  // console.log(auth);
-
   const navigate = useNavigate();
 
-  const [user, setUser] = useState({});
+  const { user } = useSelector((state) => state.auth);
 
   useEffect(() => {
-    const userInfo = localStorage.getItem("user");
-
-    if (userInfo) {
-      setUser(JSON.parse(userInfo));
+    if (!user) {
+      navigate("/user-login");
     }
-  }, []);
+  }, [user, navigate]);
 
   return (
-    <div>
-      <h1>Home Page</h1>
-    </div>
+    <>
+      <section className="heading">
+        <h1>Welcome {user && user.firstName}</h1>
+      </section>
+    </>
   );
 };
 
